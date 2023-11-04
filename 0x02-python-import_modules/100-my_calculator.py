@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
-    import calculator_1
+    from calculator_1 import add, sub, mul, div
     import sys
     argsLen = len(sys.argv)
 
@@ -13,13 +13,13 @@ if __name__ == "__main__":
     b = int(sys.argv[3])
 
     if op == "+":
-        print(f"{a} {op} {b} = {a + b}")
+        print("{0} + {1} = {2}".format(a, b, add(a, b)))
     elif op == "-":
-        print(f"{a} {op} {b} = {a - b}")
+        print("{0} - {1} = {2}".format(a, b, sub(a, b)))
     elif op == "*":
-        print(f"{a} {op} {b} = {a * b}")
+        print("{0} * {1} = {2}".format(a, b, mul(a, b)))
     elif op == "/":
-        print(f"{a} {op} {b} = {a / b}")
+        print("{0} / {1} = {2}".format(a, b, div(a, b)))
     else:
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
