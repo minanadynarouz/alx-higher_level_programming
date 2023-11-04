@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
-    import calculator_1, sys
+    import calculator_1
+    import sys
     argsLen = len(sys.argv)
 
     if argsLen != 4:
