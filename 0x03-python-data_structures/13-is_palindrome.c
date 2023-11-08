@@ -26,7 +26,7 @@ int is_palindrome(listint_t **head)
 
 	if (i % 2 == 0)
 	{
-		for (start = 0, end = i - 1; start < i / 2, end >= i / 2; start++, end--)
+		for (start = 0, end = i - 1; start < i / 2 && end >= i / 2; start++, end--)
 		{
 			if (ll_arr[start] != ll_arr[end])
 				return (0);
@@ -34,7 +34,7 @@ int is_palindrome(listint_t **head)
 	}
 	else
 	{
-		for (start = 0, end = i - 1; start < i / 2, end > i / 2; start++, end--)
+		for (start = 0, end = i - 1; start < i / 2 && end > i / 2; start++, end--)
 		{
 			if (ll_arr[start] != ll_arr[end])
 				return (0);
