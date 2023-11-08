@@ -19,7 +19,7 @@ int is_palindrome(listint_t **head)
 		current = current->next;
 	}
 
-	ll_arr = malloc(sizeof(listint_t) * count);
+	ll_arr = malloc(sizeof(int) * count);
 	if (ll_arr == NULL || *head == NULL || (*head)->next == NULL)
 		return (1);
 
