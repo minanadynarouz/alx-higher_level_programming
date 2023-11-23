@@ -29,11 +29,12 @@ class Square:
     def area(self):
         return self.__size ** 2
 
-
     def my_print(self):
         """Print square or empty line if value 0 """
-        for i in range(0, self.__size):
-            for x in range(0, self.__size):
-                print("#", end="")
+        if self.__size > 0:
+            for i in range(0, self.__size):
+                for x in range(0, self.__size):
+                    print("#", end="")
+                print()
+        else:
             print()
-
