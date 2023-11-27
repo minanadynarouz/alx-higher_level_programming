@@ -57,12 +57,12 @@ class Rectangle:
         return (self.__height + self.__width) * 2
 
     def __str__(self):
-        """Define a str to print hashes"""
+        """Define a str to print the 'print_symbol' used"""
         if self.__height == 0 or self.__width == 0:
             return ""
         rectangle = []
         for i in range(self.__height):
-            [rectangle.append(Rectangle.print_symbol) for j in range(self.__width)]
+            [rectangle.append(self.print_symbol) for j in range(self.__width)]
             if i != self.height - 1:
                 rectangle.append("\n")
         return ("".join(rectangle))
