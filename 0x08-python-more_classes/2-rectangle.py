@@ -42,9 +42,11 @@ class Rectangle:
         self.__height = value
 
     def area(self):
+        """Area of rectangle"""
         return self.__width * self.__height
 
     def perimeter(self):
-        if width == 0 or height == 0:
-            return 0
-        return 2 * (self.__width + self.__height)
+        """Perimeter of rectangle"""
+        if width != 0 and height != 0:
+            return (2 * (self.__width + self.__height))
+        return 0
