@@ -68,6 +68,6 @@ class Rectangle:
         rect = rect + ", " + str(self.__height) + ")"
         return rect
 
-    def__del__(self):
+    def __del__(self):
         """Define destructor print message"""
         print("Bye rectangle...")
