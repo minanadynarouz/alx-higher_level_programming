@@ -60,12 +60,12 @@ class Rectangle:
         """Define a str to print the 'print_symbol' used"""
         if self.__height == 0 or self.__width == 0:
             return ""
-        rectangle = []
+        rec = []
         for i in range(self.__height):
-            [rectangle.append(str(self.print_symbol)) for j in range(self.__width)]
+            [rec.append(str(self.print_symbol)) for j in range(self.__width)]
             if i != self.height - 1:
-                rectangle.append("\n")
-        return ("".join(rectangle))
+                rec.append("\n")
+        return ("".join(rec))
 
     def __repr__(self):
         """Return the string representation of the Rectangle."""
