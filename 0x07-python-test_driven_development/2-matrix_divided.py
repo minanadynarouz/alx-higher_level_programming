@@ -21,11 +21,6 @@ def matrix_divided(matrix, div):
     raise ZeroDivisionError("division by zero")
 
   for row in matrix:
-    result_matrix.append(["{:.2f}".format(item / div) for item in row])
+      result_matrix.append([float("{:.2f}".format(item / div)) for item in row])
 
   print(result_matrix)
-
-
-matrix = [[1, 2, 3], [2, 4, 6], [2, 4, 6], [2, 4, 6]]
-
-matrix_divided(matrix, 2)
