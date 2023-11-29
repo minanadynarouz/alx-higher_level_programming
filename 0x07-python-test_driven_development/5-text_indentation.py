@@ -1,20 +1,23 @@
 #!/usr/bin/python3
-"""Function indent text"""
+"""Function that indents text"""
 
 
 def text_indentation(text):
-    """ split a paragraphe into lines
-    Args:
-        text (str) -> Must be a string
-    """
+    """String validation"""
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-    idx = 0
+
+    """Separators"""
+    sep = [".", "?", ":"]
+    idx_prev = 0
+
+    """Prints the text"""
     for i in range(len(text)):
         if i == len(text) - 1:
-            print(text[idx:i + 1])
-        elif text[i] in [".", "?", ":"]:
-            print(text[idx:i + 1] + '\n')
-            idx = i + 1
-            while text[idx] == " ":
-                idx += 1
+            print(text[idx_prev:i + 1], end="")
+        elif text[i] in sep:
+            print(text[idx_prev:i + 1] + '\n')
+            idx_prev = i + 1
+            """deletes spaces"""
+            while text[idx_prev] == " ":
+                idx_prev += 1
