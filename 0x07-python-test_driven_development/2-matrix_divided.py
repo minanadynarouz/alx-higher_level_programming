@@ -1,7 +1,3 @@
-#!/usr/bin/python3
-"""divide all items in matrix by div"""
-
-
 def matrix_divided(matrix, div):
     """Divide all elements of a matrix.
     Args:
@@ -19,8 +15,7 @@ def matrix_divided(matrix, div):
     for row in matrix:
         if not isinstance(row, list):
             raise TypeError("matrix must be a matrix (list of lists) "
-                    "of integers/floats")
-
+                            "of integers/floats")
     row_size = len(matrix[0])
     for row in matrix:
         if len(row) != row_size:
@@ -29,8 +24,7 @@ def matrix_divided(matrix, div):
             for item in row:
                 if not isinstance(item, (int, float)):
                     raise TypeError("matrix must be a matrix (list of lists) "
-                            "of integers/floats")
-
+                                    "of integers/floats")
     if not isinstance(div, (int, float)):
         raise TypeError("div must be a number")
     elif div == 0:
