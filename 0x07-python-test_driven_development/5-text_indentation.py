@@ -14,4 +14,5 @@ def text_indentation(text):
         if text[i] in [".", "?", ":"]:
             i += 1
             print("\n")
+        text[i].rstrip()
         i += 1
