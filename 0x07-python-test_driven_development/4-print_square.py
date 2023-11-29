@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Print square of hashes"""
 
+
 def print_square(size):
     """ Function to print squares of '#'
     Args:
