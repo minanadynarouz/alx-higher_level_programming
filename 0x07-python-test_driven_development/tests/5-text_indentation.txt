@@ -1,10 +1,11 @@
+# 5-text_indentation.py
 Doctest for function that prints an indented text
 ----------------------------------
 
 >>> text_indentation = __import__('5-text_indentation').text_indentation
 
 
->>> text_indentation("ALX SE")
+>>> text_indentation(" SE")
 ALX SE
 
 >>> text_indentation("ALX. School? How are you: Mina")
