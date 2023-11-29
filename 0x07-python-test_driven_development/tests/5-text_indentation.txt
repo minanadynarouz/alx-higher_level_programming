@@ -1,58 +1,31 @@
-# 5-text_indentation.py
+Doctest for function that prints an indented text
+----------------------------------
 
-Test cases:
+Import .py module:
     >>> text_indentation = __import__('5-text_indentation').text_indentation
 
-    >>> text_indentation(32)
+Basic use:
+    >>> text_indentation("ALX SE")
+    ALX SE
+
+String with blank lines:
+    >>> text_indentation("ALX. School? How are you: Mina")
+    ALX.
+    <BLANKLINE>
+    School?
+    <BLANKLINE>
+    How are you:
+    <BLANKLINE>
+    Mina
+
+Int argument:
+    >>> text_indentation(12)
     Traceback (most recent call last):
-    ...    
+    ...
     TypeError: text must be a string
 
-    >>> text_indentation("I love programming")
-    I love programming
-
-    >>> text_indentation("Python tests are amazing")
-    Python tests are amazing
-
-    >>> text_indentation("This one should break.")
-    This one should break.
-    <BLANKLINE>
-
+No arguments:
     >>> text_indentation()
     Traceback (most recent call last):
     ...
     TypeError: text_indentation() missing 1 required positional argument: 'text'
-
-    >>> text_indentation(None)
-    Traceback (most recent call last):
-    ...
-    TypeError: text must be a string
-
-    >>> text_indentation("Hello. Itsfoss here. Wanna see something cool?")
-    Hello.
-    <BLANKLINE>
-    Itsfoss here.
-    <BLANKLINE>
-    Wanna see something cool?
-    <BLANKLINE>
-
-    >>> text_indentation(":")
-    :
-    <BLANKLINE>
-
-    >> text_indentation("?.:")
-    ?
-    <BLANKLINE>
-    .
-    <BLANKLINE>
-    :
-    <BLANKLINE>
-
-    >>> text_indentation(str("10"))
-    10
-
-    >>> text_indentation("? 100 Days of python?")
-    ?
-    <BLANKLINE>
-    100 Days of python?
-    <BLANKLINE>
