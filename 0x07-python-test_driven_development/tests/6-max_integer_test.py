@@ -28,13 +28,17 @@ class TestMaxInteger(unittest.TestCase):
         """Test for NaN values in the list"""
         self.assertEqual(max_integer(["1", "2", "3", "4"]), "4")
 
+    def test_maxinteger_string(self):
+        """Test for a string"""
+        self.assertEqual(max_integer("John Doe"), "o")
+
     def test_maxinteger_floats(self):
         """Test for floats"""
         self.assertEqual(max_integer([1.2, 3.1, 2.5, 4.9]), 4.9)
 
     def test_maxinteger_one(self):
         """Tesf for one element"""
-        self.assertEqual(max_integer([9]), 9)
+        self.assertEqual(max_integer([7]), 7)
 
     def test_maxinteger_none(self):
         """Test for none object"""
@@ -42,7 +46,7 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_maxinteger_negatives(self):
         """Test for negative numbers"""
-        self.assertEqual(max_integer([-1, -4, -7, -11]), -1)
+        self.assertEqual(max_integer([-1, -3, -5, -7]), -1)
 
     def test_maxinteger_same(self):
         """Test for a list with the same elements"""
@@ -56,13 +60,13 @@ class TestMaxInteger(unittest.TestCase):
         """Test for a list with only one zero"""
         self.assertEqual(max_integer([0]), 0)
 
-    def test_maxinteger_zeros(self):
+    def test_maxinteger_all_zero(self):
         """Test for a list with all elements zero"""
         self.assertEqual(max_integer([0, 0, 0, 0]), 0)
 
-    def test_maxinteger_floats(self):
+    def test_maxinteger_int_floats(self):
         """Test for int and floats"""
-        self.assertEqual(max_integer([1.53, 17.5, -9, 12, 2]), 17.5)
+        self.assertEqual(max_integer([1.53, 15.5, -9, 15, 6]), 15.5)
 
 
 if __name__ == '__main__':
