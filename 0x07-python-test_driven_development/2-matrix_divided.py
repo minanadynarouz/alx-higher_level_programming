@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+"""divide all items in matrix by div"""
+
+
 def matrix_divided(matrix, div):
     """Divide all elements of a matrix.
     Args:
