@@ -1,6 +1,3 @@
-#!/usr/bin/python3
-"""Function indent text"""
-
 def text_indentation(text):
     """ split a paragraphe into lines
     Args:
@@ -8,11 +5,12 @@ def text_indentation(text):
     """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-    i = 0
-    while i <= len(text) - 1:
-        print(text[i], end="")
-        if text[i] in [".", "?", ":"]:
-            i += 1
-            print("\n")
-        text[i].rstrip()
-        i += 1
+    idx = 0
+    for i in range(len(text)):
+        if i == len(text) - 1:
+            print(text[idx:i + 1])
+        elif text[i] in [".", "?", ":"]:
+            print(text[idx:i + 1] + '\n')
+            idx = i + 1
+            while text[idx] == " ":
+                idx += 1
