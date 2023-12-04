@@ -16,6 +16,6 @@ class Square(Rectangle):
 
     def __str__(self):
         name = str(self.__class__.__name__)
-        w = str(self.__width)
-        h = str(self.__height)
-        return f"[{name}] {w}/{h}"
+        s1 = str(self.__size)
+        s2 = str(self.__size)
+        return f"[{name}] {s1}/{s2}"
