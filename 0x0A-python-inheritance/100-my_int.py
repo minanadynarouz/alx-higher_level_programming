@@ -5,7 +5,6 @@
 class MyInt(int):
     """Class inherit from int, but invert == and !="""
 
-
     def __eq__(self, other):
         """Equality becomes inequality"""
         return super().__ne__(other)
