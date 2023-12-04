@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Child Class Rectangle"""
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
