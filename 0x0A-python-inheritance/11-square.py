@@ -12,7 +12,7 @@ class Square(Rectangle):
         super().__init__(self.__size, self.__size)
 
     def area(self):
-        return super().area()
+        return self.__size ** 2
 
     def __str__(self):
         name = str(self.__class__.__name__)
