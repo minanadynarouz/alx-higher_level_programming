@@ -9,8 +9,8 @@ class Rectangle(BaseGeometry):
     def __init__(self, width, height):
         """Constructor"""
 
-        self.integer_validator("Width", width)
+        self.integer_validator("width", width)
         self.__width = width
 
-        self.integer_validator("Height", height)
+        self.integer_validator("height", height)
         self.__height = height
