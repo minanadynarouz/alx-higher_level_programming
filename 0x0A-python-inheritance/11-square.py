@@ -11,5 +11,11 @@ class Square(Rectangle):
         self.__size = size
         super().__init__(self.__size, self.__size)
 
+    def area(self):
+        return super().area()
+
     def __str__(self):
-        return ("[Square] " + str(self.__size) + "/" + str(self.__size))
+        name = str(self.__class__.__name__)
+        w = str(self.__width)
+        h = str(self.__height)
+        return f"[{name}] {w}/{h}"
