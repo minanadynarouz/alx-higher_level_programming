@@ -20,5 +20,4 @@ def main():
 
     save_to_json_file(newContent, "add_item.json")
 
-if __name__ == '__main__':
-    main()
+main()
