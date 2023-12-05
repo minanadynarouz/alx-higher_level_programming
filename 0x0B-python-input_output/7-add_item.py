@@ -9,6 +9,7 @@ load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 
 def main():
+    """Script to get old data then add new data to it"""
     try:
         oldContent = load_from_json_file("add_item.json")
     except FileNotFoundError:
