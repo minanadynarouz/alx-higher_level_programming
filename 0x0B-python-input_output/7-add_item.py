@@ -15,9 +15,9 @@ def main():
     except FileNotFoundError:
         oldContent = []
 
-    newContent = oldContent + argv[1:]
+    oldContent += argv[1:]
 
-    save_to_json_file(newContent, "add_item.json")
+    save_to_json_file(oldContent, "add_item.json")
 
 
 if __name__ == '__main__':
