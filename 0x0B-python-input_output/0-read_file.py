@@ -2,6 +2,7 @@
 
 """Read text from a file"""
 
+
 def read_file(filename=""):
     """Function that read text file"""
     if filename:
