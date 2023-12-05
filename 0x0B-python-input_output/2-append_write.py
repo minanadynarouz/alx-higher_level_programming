@@ -3,7 +3,7 @@
 """Write text to a file"""
 
 
-def write_file(filename="", text=""):
+def append_write(filename="", text=""):
     """Apend <text> to end of <filename>
     Args:
         filename(str) -> Name of the file to append to
