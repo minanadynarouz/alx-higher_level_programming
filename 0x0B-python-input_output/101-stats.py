@@ -7,8 +7,8 @@ def print_stats(size, stats):
         stats -> are the stats key/value for each input in dict
     """
     print(f"File size: {size}")
-    for k, v in stats.items():
-        print(f"{k}: {v}")
+    for k in sorted(stats):
+        print(f"{k}: {stats[k]}")
 
 if __name__ == '__main__':
     from sys import stdin
@@ -20,6 +20,7 @@ if __name__ == '__main__':
     try:
         for line in stdin:
             if lineCount == 10:
+                print_stats(fileSize, statsCollect)
                 lineCount = 1
             else:
                 lineCount += 1
