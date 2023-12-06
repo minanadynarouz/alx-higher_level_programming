@@ -10,6 +10,7 @@ def print_stats(size, stats):
     for k in sorted(stats):
         print(f"{k}: {stats[k]}")
 
+
 if __name__ == '__main__':
     from sys import stdin
 
@@ -43,3 +44,4 @@ if __name__ == '__main__':
         print_stats(fileSize, statsCollect)
     except KeyboardInterrupt:
         print_stats(fileSize, statsCollect)
+        raise
