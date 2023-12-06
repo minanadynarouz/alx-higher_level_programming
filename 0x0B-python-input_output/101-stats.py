@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Script to get stats of from stdin about web return codes"""
 
 def print_stats(size, stats):
     """Function to print the dict containing data and file size
