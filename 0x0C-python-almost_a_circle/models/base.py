@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-
 """Module base
 Defines a Base class for other classes in the project
 """
-
 import json
 import os
+import csv
+import turtle
 
 
 class Base:
@@ -123,7 +123,7 @@ class Base:
                 objects.append(obj)
             return objects
 
-            @staticmethod
+    @staticmethod
     def draw(list_rectangles, list_squares):
         turt = turtle.Turtle()
         turt.screen.bgcolor("lightblue")
