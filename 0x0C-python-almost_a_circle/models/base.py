@@ -97,28 +97,30 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
-        """Deserialization: of a list of objects to a file"""
-        fileName = cls.__name__ + ".csv"
-        with open(fileName, 'r', newline='') as f:
-            csvRead = csv.reader(f)
-            objects = []
-            for i in csvRead:
-                if cls.__name__ == "Rectangle":
-                        obj = cls.create(
-                            id=int(i[0]),
-                            width=int(i[1]),
-                            height=int(i[2]),
-                            x=int(i[3]),
-                            y=int(i[4])
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, 'r', newline='') as file:
+                reader = csv.reader(file)
+                instances = []
+                for row in reader:
+                    if cls.__name__ == "Rectangle":
+                        instance = cls.create(
+                            id=int(row[0]),
+                            width=int(row[1]),
+                            height=int(row[2]),
+                            x=int(row[3]),
+                            y=int(row[4])
                         )
-                elif cls.__name__ == "Square":
-                    obj = cls.create(
-                        id=int(i[0]),
-                        size=int(i[1]),
-                        x=int(i[2]),
-                        y=int(i[3])
-                    )
-                else:
-                    raise ValueError("Invalid Class")
-                objects.append(obj)
-            return objects
+                    elif cls.__name__ == "Square":
+                        instance = cls.create(
+                            id=int(row[0]),
+                            size=int(row[1]),
+                            x=int(row[2]),
+                            y=int(row[3])
+                        )
+                    else:
+                        raise ValueError("Unsupported class type")
+                    instances.append(instance)
+                return instances
+        except FileNotFoundError:
+            return []
