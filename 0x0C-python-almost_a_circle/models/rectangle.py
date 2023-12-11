@@ -86,6 +86,9 @@ class Rectangle(Base):
 
     def display(self):
         """Prints rectangle to stdout using #"""
+        if self.__width <= 0 or self.__height <= 0:
+            print()
+            return
         the_y = self.__y
         while the_y > 0:
             print(" ")
