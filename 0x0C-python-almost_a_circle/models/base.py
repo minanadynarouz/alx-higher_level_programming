@@ -124,3 +124,47 @@ class Base:
                 return instances
         except FileNotFoundError:
             return []
+
+            @staticmethod
+    def draw(list_rectangles, list_squares):
+        turt = turtle.Turtle()
+        turt.screen.bgcolor("lightblue")
+        turt.pensize(5)
+        turt.shape("turtle")
+        turt.penup()
+        turt.pendown()
+        turt.speed(6)
+
+        window_width = turtle.window_width()
+        window_height = turtle.window_height()
+
+        turt.color("darkgreen")
+        for re in list_rectangles:
+            window_width += 40
+            window_height += 50
+            turt.showturtle()
+            turt.penup()
+            turt.pendown()
+            for _ in range(2):
+                turt.forward(re.width)
+                turt.right(90)
+                turt.forward(re.height)
+                turt.right(90)
+            turt.penup()
+            turt.setpos(-window_width / 4, window_height / 6)
+            turt.hideturtle()
+
+        turt.color("purple")
+        for sq in list_squares:
+            turt.showturtle()
+            turt.penup()
+            turt.pendown()
+            for _ in range(2):
+                turt.forward(sq.width)
+                turt.right(90)
+                turt.forward(sq.height)
+                turt.right(90)
+            turt.penup()
+            turt.setpos(-window_width / 10, window_height / 20)
+            turt.hideturtle()
+        turtle.done()
