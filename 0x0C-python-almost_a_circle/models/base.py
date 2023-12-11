@@ -86,13 +86,12 @@ class Base:
         """serialization: of a list of objects to a file"""
         fileName = cls.__name__ + ".csv"
         with open(fileName, 'w', newline='') as f:
-            csvWriter = csv.writer(f)
+            wtr = csv.writer(f)
             for obj in list_objs:
                 if cls.__name__ == "Rectangle":
-                    csvWriter.writerow\
-                                ([obj.id, obj.width, obj.height, obj.x, obj.y])
+                    wtr.writerow([obj.id, obj.width, obj.height, obj.x, obj.y])
                 elif cls.__name__ == "Square":
-                    csvWriter.writerow([obj.id, obj.size, obj.x, obj.y])
+                    wtr.writerow([obj.id, obj.size, obj.x, obj.y])
                 else:
                     raise ValueError("Invalid Class")
 
