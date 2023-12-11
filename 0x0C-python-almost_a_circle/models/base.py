@@ -83,17 +83,19 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        """serialization: of a list of objects to a file"""
-        fileName = cls.__name__ + ".csv"
-        with open(fileName, 'w', newline='') as f:
-            csvWriter = csv.writer(f)
+        """serialization: of a list of objects to a file
+         args:
+          """
+        filename = cls.__name__ + ".csv"
+        with open(filename, 'w', newline='') as file:
+            writer = csv.writer(file)
             for obj in list_objs:
                 if cls.__name__ == "Rectangle":
-                    csvWriter.writerow([obj.id, obj.width, obj.height, obj.x, obj.y])
+                    writer.writerow([obj.id, obj.width, obj.height, obj.x, obj.y])
                 elif cls.__name__ == "Square":
-                    csvWriter.writerow([obj.id, obj.size, obj.x, obj.y])
+                    writer.writerow([obj.id, obj.size, obj.x, obj.y])
                 else:
-                    raise ValueError("Invalid Class")
+                    raise ValueError("Invalid class type")
 
     @classmethod
     def load_from_file_csv(cls):
@@ -119,7 +121,7 @@ class Base:
                             y=int(row[3])
                         )
                     else:
-                        raise ValueError("Unsupported class type")
+                        raise ValueError("Invalid class type")
                     instances.append(instance)
                 return instances
         except FileNotFoundError:
