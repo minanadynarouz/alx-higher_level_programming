@@ -15,15 +15,7 @@ class Rectangle(Base):
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """
-        Initializes a Rectangle instance
-        Args:
-            - __width: width
-            - __height: height
-            - __x: position
-            - __y: position
-            - id: id
-        """
+        """Initializes a Rectangle instance"""
         self.__width = width
         self.__height = height
         self.__x = x
