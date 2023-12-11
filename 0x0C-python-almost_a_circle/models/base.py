@@ -89,7 +89,8 @@ class Base:
             csvWriter = csv.writer(f)
             for obj in list_objs:
                 if cls.__name__ == "Rectangle":
-                    csvWriter.writerow([obj.id, obj.width, obj.height, obj.x, obj.y])
+                    csvWriter.writerow\
+                                ([obj.id, obj.width, obj.height, obj.x, obj.y])
                 elif cls.__name__ == "Square":
                     csvWriter.writerow([obj.id, obj.size, obj.x, obj.y])
                 else:
@@ -104,13 +105,13 @@ class Base:
             objects = []
             for i in csvRead:
                 if cls.__name__ == "Rectangle":
-                        obj = cls.create(
-                            id=int(i[0]),
-                            width=int(i[1]),
-                            height=int(i[2]),
-                            x=int(i[3]),
-                            y=int(i[4])
-                        )
+                    obj = cls.create(
+                        id=int(i[0]),
+                        width=int(i[1]),
+                        height=int(i[2]),
+                        x=int(i[3]),
+                        y=int(i[4])
+                    )
                 elif cls.__name__ == "Square":
                     obj = cls.create(
                         id=int(i[0]),
@@ -122,7 +123,6 @@ class Base:
                     raise ValueError("Invalid Class")
                 objects.append(obj)
             return objects
-
 
             @staticmethod
     def draw(list_rectangles, list_squares):
