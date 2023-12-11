@@ -81,49 +81,35 @@ class Base:
             list.append(cls.create(**dict))
         return list
 
+
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        """serialization: of a list of objects to a file"""
         filename = cls.__name__ + ".csv"
         with open(filename, 'w', newline='') as file:
-            wtr = csv.writer(file)
-            for obj in list_objs:
-                if cls.__name__ == "Rectangle":
-                    wtr.writerow([obj.id, obj.width, obj.height, obj.x, obj.y])
-                elif cls.__name__ == "Square":
-                    wtr.writerow([obj.id, obj.size, obj.x, obj.y])
-                else:
-                    raise ValueError("Invalid class type")
+            writer = csv.writer(file)
+            if list_objs:
+                for obj in list_objs:
+                    writer.writerow([getattr(obj, attr) for attr in obj.get_attributes()])
+            else:
+                writer.writerow([])
 
     @classmethod
     def load_from_file_csv(cls):
         filename = cls.__name__ + ".csv"
         try:
-            with open(filename, 'r', newline='') as file:
+            with open(filename, 'r') as file:
                 reader = csv.reader(file)
-                instances = []
+                obj_list = []
                 for row in reader:
-                    if cls.__name__ == "Rectangle":
-                        instance = cls.create(
-                            id=int(row[0]),
-                            width=int(row[1]),
-                            height=int(row[2]),
-                            x=int(row[3]),
-                            y=int(row[4])
-                        )
-                    elif cls.__name__ == "Square":
-                        instance = cls.create(
-                            id=int(row[0]),
-                            size=int(row[1]),
-                            x=int(row[2]),
-                            y=int(row[3])
-                        )
-                    else:
-                        raise ValueError("Invalid class type")
-                    instances.append(instance)
-                return instances
+                    if row:
+                        obj_dict = {}
+                        for i, attr in enumerate(cls.get_attributes()):
+                            obj_dict[attr] = int(row[i])
+                        obj_list.append(cls.create(**obj_dict))
+                return obj_list
         except FileNotFoundError:
             return []
+
 
             @staticmethod
     def draw(list_rectangles, list_squares):
