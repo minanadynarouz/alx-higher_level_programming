@@ -81,34 +81,47 @@ class Base:
             list.append(cls.create(**dict))
         return list
 
-
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        filename = cls.__name__ + ".csv"
-        with open(filename, 'w', newline='') as file:
-            writer = csv.writer(file)
-            if list_objs:
-                for obj in list_objs:
-                    writer.writerow([getattr(obj, attr) for attr in obj.get_attributes()])
-            else:
-                writer.writerow([])
+        """serialization: of a list of objects to a file"""
+        fileName = cls.__name__ + ".csv"
+        with open(fileName, 'w', newline='') as f:
+            csvWriter = csv.writer(f)
+            for obj in list_objs:
+                if cls.__name__ == "Rectangle":
+                    csvWriter.writerow([obj.id, obj.width, obj.height, obj.x, obj.y])
+                elif cls.__name__ == "Square":
+                    csvWriter.writerow([obj.id, obj.size, obj.x, obj.y])
+                else:
+                    raise ValueError("Invalid Class")
 
     @classmethod
     def load_from_file_csv(cls):
-        filename = cls.__name__ + ".csv"
-        try:
-            with open(filename, 'r') as file:
-                reader = csv.reader(file)
-                obj_list = []
-                for row in reader:
-                    if row:
-                        obj_dict = {}
-                        for i, attr in enumerate(cls.get_attributes()):
-                            obj_dict[attr] = int(row[i])
-                        obj_list.append(cls.create(**obj_dict))
-                return obj_list
-        except FileNotFoundError:
-            return []
+        """Deserialization: of a list of objects to a file"""
+        fileName = cls.__name__ + ".csv"
+        with open(fileName, 'r', newline='') as f:
+            csvRead = csv.reader(f)
+            objects = []
+            for i in csvRead:
+                if cls.__name__ == "Rectangle":
+                        obj = cls.create(
+                            id=int(i[0]),
+                            width=int(i[1]),
+                            height=int(i[2]),
+                            x=int(i[3]),
+                            y=int(i[4])
+                        )
+                elif cls.__name__ == "Square":
+                    obj = cls.create(
+                        id=int(i[0]),
+                        size=int(i[1]),
+                        x=int(i[2]),
+                        y=int(i[3])
+                    )
+                else:
+                    raise ValueError("Invalid Class")
+                objects.append(obj)
+            return objects
 
 
             @staticmethod
