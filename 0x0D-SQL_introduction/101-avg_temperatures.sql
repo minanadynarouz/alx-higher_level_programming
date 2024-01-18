@@ -1,5 +1,5 @@
 -- displays the average temperature
-SELECT city, AVG(`value`) as tmp_val
-FROM temperature
-GROUP BY city
-ORDER BY tmp_val DESC;
+SELECT `city`, AVG(`value`) AS `temp_val`
+FROM `temperatures`
+GROUP BY `city`
+ORDER BY `temp_val` DESC;
