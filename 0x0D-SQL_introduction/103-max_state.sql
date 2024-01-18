@@ -1,4 +1,5 @@
 -- Select max temp in table
-SELECT MAX(state)
-FROM temperature
-ORDER BY state;
+SELECT state, MAX(state) as max_val
+FROM temperatures
+GROUP BY state
+ORDER BY max_val DESC;
