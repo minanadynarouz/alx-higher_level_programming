@@ -4,7 +4,7 @@ FROM tv_genres
 WHERE name = 'Comedy';
 
 -- List all show ids without the genre Comedy
-SELECT tv_shows.title
+SELECT DISTINCT(tv_shows.title)
 FROM tv_shows
 LEFT JOIN tv_show_genres
     ON tv_shows.id = tv_show_genres.show_id
