@@ -3,9 +3,10 @@ SELECT @comedy_genre_id := id
 FROM tv_genres
 WHERE name = 'Comedy';
 
-SELECT sh.title
-FROM tv_shows AS sh
-LEFT JOIN tv_show_genres AS sh_gen
-	ON sh.id = sh_gen.show_id
-WHERE sh_gen.genre_id != @comedy_genre_id OR sh_gen.genre_id IS NULL
-ORDER BY sh.title;
+-- List all show ids without the genre Comedy
+SELECT tv_shows.title
+FROM tv_shows
+LEFT JOIN tv_show_genres
+    ON tv_shows.id = tv_show_genres.show_id
+WHERE tv_show_genres.genre_id != @comedy_genre_id OR tv_show_genres.genre_id IS NULL
+ORDER BY tv_shows.title;
