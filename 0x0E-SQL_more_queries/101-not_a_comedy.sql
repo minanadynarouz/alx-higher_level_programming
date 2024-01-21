@@ -1,11 +1,18 @@
--- Declare and set the variable in the same session
-SET @comedy_genre_id := (SELECT id FROM tv_genres WHERE name = 'Comedy');
+-- Lists all shows without the comedy genre in the database hbtn_0d_tvshows.
+SELECT DISTINCT `title`
+  FROM `tv_shows` AS t
+       LEFT JOIN `tv_show_genres` AS s
+       ON s.`show_id` = t.`id`
 
--- List all show titles without the genre Comedy
-SELECT DISTINCT tv_shows.title
-FROM tv_shows
-LEFT JOIN tv_show_genres 
-ON tv_shows.id = tv_show_genres.show_id
-WHERE tv_show_genres.genre_id != @comedy_genre_id OR tv_show_genres.genre_id IS NULL
-ORDER BY tv_shows.title;
+       LEFT JOIN `tv_genres` AS g
+       ON g.`id` = s.`genre_id`
+       WHERE t.`title` NOT IN
+             (SELECT `title`
+                FROM `tv_shows` AS t
+	             INNER JOIN `tv_show_genres` AS s
+		     ON s.`show_id` = t.`id`
 
+		     INNER JOIN `tv_genres` AS g
+		     ON g.`id` = s.`genre_id`
+		     WHERE g.`name` = "Comedy")
+ ORDER BY `title`;
