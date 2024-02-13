@@ -1,4 +1,13 @@
 #!/usr/bin/node
 
-const myVar = 'JavaScript is amazing';
-console.log(myVar);
+
+let length = process.argv.length;
+let args = process.argv;
+
+if (length < 3) {
+	console.log("No argument");
+} else if (length === 3) {
+	console.log("Argument found");
+} else {
+	console.log("Arguments found");
+}
