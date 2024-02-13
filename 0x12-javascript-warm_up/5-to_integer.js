@@ -1,7 +1,6 @@
 #!/usr/bin/node
 
-let num = Number(process.argv[2]);
-
+const num = Number(process.argv[2]);
 if (!isNaN(num)) {
   console.log(`My number: ${num}`);
 } else {
