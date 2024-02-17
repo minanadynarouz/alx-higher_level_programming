@@ -11,7 +11,7 @@ import sys
 import MySQLdb as mydb
 
 
-def connect_execute() -> None:
+def connect_execute():
 
     """Connect to the database and execute query"""
     try:
@@ -20,8 +20,8 @@ def connect_execute() -> None:
                 passwd=sys.argv[2],
                 database=sys.argv[2]
                 )
-        cur = db.cursor(cursorclass=db.cursor.Cursor)
-        cur.execute('SELECT * FROM states ORDERBY `id` ASC;')
+        cur = db.cursor()
+        cur.execute('SELECT * FROM states ORDERi BY `id` ASC;')
         states = cur.fetchall()
 
         for state in states:
