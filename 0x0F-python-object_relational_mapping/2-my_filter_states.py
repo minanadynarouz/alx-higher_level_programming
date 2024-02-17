@@ -18,7 +18,10 @@ if __name__ == "__main__":
         db=database,
     )
     cur = conn.cursor()
-    cur.execute("SELECT * FROM states WHERE name LIKE '{}'".format(matchName))
+    cur.execute("SELECT * FROM states WHERE name LIKE BINARY'{}'".format(
+        matchName
+        )
+        )
     rows = cur.fetchall()
 
     for row in rows:
