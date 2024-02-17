@@ -20,7 +20,7 @@ def connect_execute():
                 passwd=sys.argv[2],
                 database=sys.argv[2]
                 )
-        cur = db.cursor()
+        cur = db.cursor(cursorclass=db.cursor.Cursor)
         cur.execute('SELECT * FROM states ORDERBY `id` ASC;')
         states = cur.fetchall()
 
