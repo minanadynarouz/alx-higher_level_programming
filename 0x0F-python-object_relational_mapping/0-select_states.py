@@ -13,13 +13,8 @@ def main():
 
     query = "SELECT * FROM states ORDER BY states.id"
 
-    try:
-        cursor.execute(query)
-        states = cursor.fetchall()
-    except MySQLdb.Error as e:
-        print("Error executing query:", e)
-        db.close()
-        return
+    cursor.execute(query)
+    states = cursor.fetchall()
 
     for state in states:
         print(state)
