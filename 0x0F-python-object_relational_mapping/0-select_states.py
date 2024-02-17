@@ -1,27 +1,27 @@
 #!/usr/bin/python3
+"""MySQLdb script"""
+
 import MySQLdb
 import sys
 
-def main():
-    """ Database connection parameters """
+if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
 
-    db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
-    cursor = db.cursor()
+    conn = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=username,
+        passwd=password,
+        db=database,
+    )
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM states ORDER BY id")
+    query_rows = cur.fetchall()
 
-    query = "SELECT * FROM states ORDER BY states.id"
+    for row in query_rows:
+        print(row)
 
-    cursor.execute(query)
-    states = cursor.fetchall()
-
-    for state in states:
-        print(state)
-
-    cursor.close()
-    db.close()
-
-if __name__ == "__main__":
-    main()
-
+    cur.close()
+    conn.close()
