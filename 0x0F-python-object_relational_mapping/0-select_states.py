@@ -7,20 +7,24 @@ Usage: ./0-select_states.py <username> \
                              <database-name>
 """
 import sys
-import MySQLdb as db
+import MySQLdb
 
 
 def connect_query():
 
     """Connect to the database and execute query"""
     try:
-        cnx = db.connect(host="localhost", port=3306, user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
-        cursor = cnx.cursor()
-        cursor.execute('SELECT * FROM hbtn_0e_0_usa.states ORDER BY states.id ASC;')
-        states = cursor.fetchall()
+        db = MySQLdb.connect(host="localhost",
+                port=3306,
+                user=sys.argv[1],
+                passwd=sys.argv[2],
+                db=sys.argv[3]
+                )
+        cur = db.cursor()
+        rows = cur.execute('SELECT * FROM states ORDER BY states.id')
 
-        for state in states:
-            print(state)
+        for i in range(rows):
+            print(cur.fetchone())
     except Exception as e:
         return (e)
 
