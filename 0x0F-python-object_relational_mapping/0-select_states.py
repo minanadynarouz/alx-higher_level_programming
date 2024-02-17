@@ -11,7 +11,7 @@ import sys
 import MySQLdb as mydb
 
 
-def connect_execute():
+def connect_execute() -> None:
 
     """Connect to the database and execute query"""
     try:
