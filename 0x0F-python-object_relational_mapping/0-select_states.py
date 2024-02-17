@@ -16,7 +16,7 @@ def connect_query():
     try:
         cnx = db.connect(host="localhost", port=3306, user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
         cursor = cnx.cursor()
-        cursor.execute('SELECT * FROM states ORDER BY `id` ASC;')
+        cursor.execute('SELECT * FROM hbtn_0e_0_usa.states ORDER BY states.id ASC;')
         states = cursor.fetchall()
 
         for state in states:
