@@ -1,28 +1,23 @@
 #!/usr/bin/python3
 
 """
-lists all states from the database hbtn_0e_0_usa
+Lists all states from the states table of database hbtn_0e_0_usa.
 Usage: ./0-select_states.py <username> \
                             <password> \
                              <database-name>
 """
-
 import sys
-import MySQLdb as mydb
+import MySQLdb as db
 
 
-def connect_execute() -> None:
+def connect_and_query() -> None:
 
     """Connect to the database and execute query"""
     try:
-        conn = mydb.connect(
-                user=sys.argv[1],
-                passwd=sys.argv[2],
-                database=sys.argv[2]
-                )
-        cur = db .cursor(cursorclass=db.cursor.Cursor)
-        cur.execute('SELECT * FROM states ORDER BY `id` ASC;')
-        states = cur.fetchall()
+        cnx = db.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
+        cursor = cnx.cursor(cursorclass=db.cursors.Cursor)
+        cursor.execute('SELECT * FROM states ORDER BY `id` ASC;')
+        states = cursor.fetchall()
 
         for state in states:
             print(state)
@@ -30,5 +25,5 @@ def connect_execute() -> None:
         return (e)
 
 
-if __name__ = "__main__":
-    connect_execute()
+if __name__ == "__main__":
+    connect_and_query()
