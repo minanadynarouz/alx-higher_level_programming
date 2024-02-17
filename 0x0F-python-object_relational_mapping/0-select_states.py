@@ -4,7 +4,9 @@
 import MySQLdb
 import sys
 
+
 def main(username, password, database):
+    """main script"""
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
@@ -25,6 +27,7 @@ def main(username, password, database):
 
     cur.close()
     conn.close()
+
 
 if __name__ == "__main__":
     main()
