@@ -13,16 +13,16 @@ class City(Base):
     """Table Declaration"""
     __tablename__ = 'cities'
     id = Column(
-            Interger,
-            unique=True,
-            autoincrement=True,
-            nullable=False,
-            primary_key=True)
+        Integer,
+        primary_key=True,
+        unique=True,
+        autoincrement=True,
+        nullable=False)
     name = Column(
-            String(128),
-            nullable=False)
+        String(128),
+        nullable=False)
     state_id = Column(
-            Integer,
-            nullable=False,
-            ForeignKey('states.id'))
+        Integer,
+        ForeignKey('states.id'),
+        nullable=False)
     state = relationship('State')
