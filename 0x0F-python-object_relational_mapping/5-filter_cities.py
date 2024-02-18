@@ -27,9 +27,9 @@ if __name__ == "__main__":
             FROM cities as city \
             JOIN states as st \
                 ON city.state_id = st.id \
-            WHERE st.name = '{stateName}' \
+            WHERE st.name = %s \
             ORDER BY city.id"
-    cur.execute(query)
+    cur.execute(query, (stateName,))
     rows = cur.fetchall()
 
     for row in rows:
