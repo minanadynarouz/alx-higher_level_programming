@@ -23,12 +23,13 @@ if __name__ == "__main__":
             )
     cur = conn.cursor()
 
-    query = "SELECT city \
+    query = "SELECT city.name \
             FROM cities as city \
-            JOIN states \
-                ON states.state_id = city.id
+            JOIN states as st \
+                ON city.state_id = st.id \
+            WHERE st.name = '{stateName}' \
             ORDER BY city.id"
-    cur.execute(query, (stateName,))
+    cur.execute(query)
     rows = cur.fetchall()
 
     for row in rows:
