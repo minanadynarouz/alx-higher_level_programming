@@ -14,7 +14,7 @@ if __name__ == "__main__":
     db = argv[3]
     stateName = argv[4]
 
-    conn = MySQLdb.connection(
+    conn = MySQLdb.connect(
             host="localhost",
             port=3306,
             user=userName,
@@ -32,8 +32,8 @@ if __name__ == "__main__":
     cur.execute(query, (stateName,))
     rows = cur.fetchall()
 
-    for row in rows:
-        print(row)
+    city_names = ", ".join(row[0] for row in rows)
+    print(city_names)
 
     cur.close()
     conn.close()
