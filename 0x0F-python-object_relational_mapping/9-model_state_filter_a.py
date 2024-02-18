@@ -5,7 +5,7 @@ lists all State objects that contain the letter a from database hbtn_0e_6_usa
 """
 
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmakder
+from sqlalchemy.orm import sessionmaker
 from sys import argv
 from model_state import Base, State
 
