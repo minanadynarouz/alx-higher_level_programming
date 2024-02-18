@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""Lists all State objects, and corresponding City objects,
-contained in the database hbtn_0e_101_usa"""
+"""Lists all State objects and corresponding City"""
 
 import sys
 from sqlalchemy import create_engine
@@ -14,9 +13,9 @@ if __name__ == "__main__":
     db_name = sys.argv[3]
 
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
-                           .format(username, password, db_name),
-                        pool_pre_ping=True)
-
+                           .format(username, password, db_name))
+    
+    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
 
