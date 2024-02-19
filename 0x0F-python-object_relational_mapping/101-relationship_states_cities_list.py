@@ -1,13 +1,18 @@
 #!/usr/bin/python3
 """Lists all State objects and corresponding City"""
 
+
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from relationship_state import State, Base
 from relationship_city import City
 
+
 if __name__ == "__main__":
+    """
+    Script to print states and cities
+    """
     username = sys.argv[1]
     password = sys.argv[2]
     db_name = sys.argv[3]
