@@ -13,7 +13,7 @@ if __name__ == "__main__":
     username = sys.argv[1]
     passwd = sys.argv[2]
     db = sys.argv[3]
-    engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}"
+    engine = create_engine("mysql+mysqldb://{}:{}@localhost:3306/{}"
                            .format(username, passwd, db),
                            pool_pre_ping=True)
     Base.metadata.create_all(engine)
@@ -22,3 +22,5 @@ if __name__ == "__main__":
 
     session.add(City(name="San Francisco", state=State(name="California")))
     session.commit()
+
+    session.close()
