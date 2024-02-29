@@ -1,24 +1,25 @@
 #!/usr/bin/python3
 """
-finds a peak in a list of unsorted integers
+Finds a peak in a list of unsorted integers using binary search
 """
 
 
 def find_peak(list_of_integers):
-    """Function to find a peak and maynot lookup the while list"""
+    """Function to find a peak using binary search"""
 
-    if len(list_of_integers) == 0:
+    n = len(list_of_integers)
+    if n == 0:
         return None
-    if len(list_of_integers) == 1:
+    if n == 1:
         return list_of_integers[0]
-    if len(list_of_integers) == 2:
-        return max(list_of_integers)
 
-    mid = int(len(list_of_integers) / 2)
-    peak = list_of_integers[mid]
-    if peak > list_of_integers[mid - 1] and peak > list_of_integers[mid + 1]:
-        return peak
-    elif peak < list_of_integers[mid - 1]:
-        return find_peak(list_of_integers[:mid])
-    else:
-        return find_peak(list_of_integers[mid + 1:])
+    left, right = 0, n - 1
+
+    while left < right:
+        mid = (left + right) // 2
+        if list_of_integers[mid] > list_of_integers[mid + 1]:
+            right = mid
+        else:
+            left = mid + 1
+
+    return list_of_integers[left]
