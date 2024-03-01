@@ -18,5 +18,6 @@ def get_res(url: str) -> str:
     except error.HTTPError as e:
         return "Error code: {}".format(e.code)
 
+
 if __name__ == "__main__":
     print(get_res(argv[1]))
