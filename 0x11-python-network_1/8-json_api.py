@@ -22,10 +22,11 @@ def send_letter_port(letter=""):
     try:
         resp_json = resp.json()
         if len(resp_json) != 0:
-            return ("[{}] {}".format(resp_json.get('id'), resp_json.get('name')))
+            return "[{}] {}".format(resp_json.get('id'), resp_json.get('name'))
         return ("No result")
     except Exception as e:
         return ("Not a valid JSON")
+
 
 if __name__ == "__main__":
     if len(argv) == 2:
