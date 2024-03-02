@@ -6,8 +6,8 @@ from sys import argv
 
 
 def display_err(url):
-    req = requests.get(url) 
-    
+    req = requests.get(url)
+
     if int(req.status_code) >= 400:
         return ("Error code: {}".format(req.status_code))
 
