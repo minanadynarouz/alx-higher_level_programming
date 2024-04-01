@@ -7,4 +7,4 @@ request
   .get(url)
   .on('response', (res) => {
     console.log(`code: ${res.statusCode}`);
-  })
+  });
