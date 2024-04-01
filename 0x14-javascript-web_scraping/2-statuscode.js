@@ -6,5 +6,5 @@ const url = process.argv[2];
 request
   .get(url)
   .on('response', (res) => {
-    console.log(res.statusCode);
+    console.log(`code: ${res.statusCode}`);
   })
