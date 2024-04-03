@@ -1,5 +1,3 @@
-let i = 0;
-
 $.ajax({
     url: "https://swapi-api.alx-tools.com/api/films/?format=json",
     success: (res) => {
